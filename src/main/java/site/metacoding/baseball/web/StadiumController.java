@@ -37,10 +37,9 @@ public class StadiumController {
 	}
 	
 	@PostMapping("/stadium/save")
-	public String save(SaveDto saveDto) {
+	public @ResponseBody CMRespDto<?>  save(@RequestBody SaveDto saveDto) {
 		stadiumService.경기장등록(saveDto);
-		return "redirect:/stadium";
-		//return new CMRespDto<>(1, "야구장 등록 성공", null);
+		return new CMRespDto<>(1, "경기장 등록이 완료되었습니다.", null);
 	}
 	
 	@DeleteMapping("/stadium/{id}/delete")

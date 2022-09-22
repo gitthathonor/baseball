@@ -16,4 +16,12 @@ public class Player {
 	private Integer teamId;
 	private String position;
 	private Timestamp createdAt;
+	
+	
+	public Player(Integer teamId, String name, String position) {
+		this.teamId = teamId;
+		this.name = name;
+		this.position = position;
+	}
+	
 }

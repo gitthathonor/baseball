@@ -31,4 +31,8 @@ public class TeamService {
 	public List<Stadium> 팀등록시구장목록보기() {
 		return stadiumDao.findAll();
 	}
+	
+	public void 팀해체(Integer id) {
+		teamDao.deleteById(id);
+	}
 }

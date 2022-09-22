@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,6 +42,12 @@ public class TeamController {
 	public @ResponseBody CMRespDto<?> save(@RequestBody SaveDto saveDto) {
 		teamService.팀등록(saveDto);
 		return new CMRespDto<>(1, "팀 등록이 완료되었습니다.", null);
+	}
+	
+	@DeleteMapping("/team/{id}/delete")
+	public @ResponseBody CMRespDto<?> delete(@PathVariable Integer id) {
+		teamService.팀해체(id);
+		return new CMRespDto<>(1, id+"팀 해체 완료!", null);
 	}
 	
 }

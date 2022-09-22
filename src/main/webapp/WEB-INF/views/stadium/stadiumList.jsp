@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp" %>
 
-<button id="btn" type="button">테스트</button>
 <div class="container">
   <table class="table table-striped">
     <thead>

@@ -6,7 +6,7 @@
 	<form>
       <div class="d-flex justify-content-center">
          <select id="stadium">
-            <option value="none">== 팀 선택 ==</option>
+            <option value="none">== 구장 선택 ==</option>
             <c:forEach var="stadium" items="${stadiumList}">
                <option value="${stadium.id}">${stadium.name}</option>
             </c:forEach>
