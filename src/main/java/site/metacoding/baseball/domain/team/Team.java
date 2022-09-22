@@ -1,22 +1,22 @@
-package site.metacoding.baseball.domain.stadium;
+package site.metacoding.baseball.domain.team;
 
 import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class Stadium {
+public class Team {
 	private Integer id;
 	private String name;
+	private Integer stadiumId;
 	private Timestamp createdAt;
 	
-	public Stadium(String name) {
+	public Team(Integer stadiumId, String name) {
+		this.stadiumId = stadiumId;
 		this.name = name;
 	}
 }

@@ -5,6 +5,7 @@
 <mapper namespace="site.metacoding.baseball.domain.stadium.StadiumDao">
 
 	<insert id="insert">
+		INSERT INTO stadium(name, createdAt) VALUES(#{name}, now())
 	</insert>
 
 	<select id="findAll"
@@ -14,12 +15,12 @@
 
 	<select id="findById"
 		resultType="site.metacoding.baseball.domain.stadium.Stadium">
+		SELECT * FROM stadium WHERE id = #{id}
 	</select>
 
-	<insert id="update">
-	</insert>
-
-	<insert id="deleteById">
-	</insert>
+	<delete id="deleteById">
+		DELETE FROM stadium WHERE id = #{id}
+	</delete>
+	
 	
 </mapper>

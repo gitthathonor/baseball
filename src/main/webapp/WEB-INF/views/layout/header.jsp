@@ -7,8 +7,10 @@
   <title>BaseBall</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -21,22 +23,22 @@
     <div class="collapse navbar-collapse" id="mynavbar">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">야구장 등록하기</a>
+          <a class="nav-link" href="/stadium/saveForm">야구장 등록하기</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/stadium">야구장 목록보기</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">팀 등록하기</a>
+          <a class="nav-link" href="/team/saveForm">팀 등록하기</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">팀별 목록보기</a>
+          <a class="nav-link" href="/team">팀별 목록보기</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">선수 등록하기</a>
+          <a class="nav-link" href="/player/saveForm">선수 등록하기</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">선수 목록보기</a>
+          <a class="nav-link" href="/player">선수 목록보기</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="javascript:void(0)">포지션별 팀의 야구선수</a>

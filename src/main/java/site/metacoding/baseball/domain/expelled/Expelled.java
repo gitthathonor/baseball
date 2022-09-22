@@ -1,4 +1,4 @@
-package site.metacoding.baseball.domain.stadium;
+package site.metacoding.baseball.domain.expelled;
 
 import java.sql.Timestamp;
 
@@ -11,12 +11,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Stadium {
+public class Expelled {
 	private Integer id;
 	private String name;
 	private Timestamp createdAt;
 	
-	public Stadium(String name) {
+	public Expelled(String name) {
 		this.name = name;
 	}
 }

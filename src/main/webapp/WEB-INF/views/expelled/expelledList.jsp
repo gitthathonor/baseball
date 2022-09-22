@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp" %>
 
-<button id="btn" type="button">테스트</button>
 <div class="container">
   <table class="table table-striped">
     <thead>
@@ -21,38 +20,11 @@
         <td>${stadium.name}</td>
         <td>${stadium.createdAt}</td>
         <td><button id="btnUpdate" class="btn btn-warning">수정</button></td>
-      	<td><i onclick="deleteStadium(${stadium.id},this)" class="fa-solid fa-trash"></i></td>
+        <td><button id="btnDelete" class="btn btn-danger">삭제</button></td>
       </tr>
-     </c:forEach>
+      </c:forEach>
     </tbody>
   </table>
 </div>
-
-
-<script>
-	function deleteStadium(id, obj) {
-		let tr = $(obj).parent().parent();
-		
-		let data = {
-				id : id
-		}
-		
-		console.log(data);
-		console.log(data.id);
-		
-		$.ajax("/stadium/"+data.id+"/delete",{
-			type: "DELETE",
-			dataType: "json",
-			data:data
-		}).done((res)=>{
-			if(res.code == 1) {
-				alert(data.id+"경기장이 삭제되었습니다.");
-				location.reload();
-			} else {
-				alert("삭제가 실패하였습니다.");
-			}
-		});
-	}
-</script>
 
 <%@ include file="../layout/footer.jsp" %>
