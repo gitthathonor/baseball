@@ -10,6 +10,7 @@ import site.metacoding.baseball.domain.stadium.StadiumDao;
 import site.metacoding.baseball.domain.team.Team;
 import site.metacoding.baseball.domain.team.TeamDao;
 import site.metacoding.baseball.web.dto.request.team.SaveDto;
+import site.metacoding.baseball.web.dto.response.StadiumListDto;
 import site.metacoding.baseball.web.dto.response.TeamListDto;
 
 @Service
@@ -29,7 +30,7 @@ public class TeamService {
 	}
 	
 	public List<Stadium> 팀등록시구장목록보기() {
-		return stadiumDao.findAll();
+		return stadiumDao.findAllWithTeam();
 	}
 	
 	public void 팀해체(Integer id) {

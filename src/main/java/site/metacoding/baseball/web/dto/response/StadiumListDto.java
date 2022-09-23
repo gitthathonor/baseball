@@ -7,10 +7,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TeamListDto {
+public class StadiumListDto {
 	private Integer rownum;
 	private Integer id;
-	private String stadiumName;
-	private String teamName;
+	private String name;
 	private Timestamp createdAt;
 }

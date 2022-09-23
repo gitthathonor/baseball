@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PlayerListDto {
+	private Integer rownum;
 	private Integer id;
 	private String teamName;
 	private String position;

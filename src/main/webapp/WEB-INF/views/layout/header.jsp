@@ -41,10 +41,13 @@
           <a class="nav-link" href="/player">선수 목록보기</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">포지션별 팀의 야구선수</a>
+          <a class="nav-link" href="/position">포지션별 팀의 야구선수</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">퇴출선수 목록보기</a>
+          <a class="nav-link" href="/expelledForm">퇴출선수 등록</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/expelled">퇴출선수 목록보기</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -54,3 +57,5 @@
     </div>
   </div>
 </nav>
+<br>
+<br>

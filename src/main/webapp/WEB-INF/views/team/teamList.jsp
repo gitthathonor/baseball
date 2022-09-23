@@ -16,7 +16,7 @@
     <tbody>
     <c:forEach var="team" items="${teamList}">
       <tr>
-        <td>${team.id}</td>
+        <td>${team.rownum}</td>
         <td>${team.stadiumName}</td>
         <td>${team.teamName}</td>
         <td>${team.createdAt}</td>
@@ -28,29 +28,6 @@
   </table>
 </div>
 
-<script>
-	function deleteTeam(id, obj) {
-		let tr = $(obj).parent().parent();
-		
-		let data = {
-				id : id
-		}
-		
-		console.log(data);
-		console.log(data.id);
-		
-		$.ajax("/team/"+data.id+"/delete",{
-			type: "DELETE",
-			dataType: "json",
-			data:data
-		}).done((res)=>{
-			if(res.code == 1) {
-				alert(res.msg);
-				location.reload();
-			} else {
-				alert("해체에 실패하였습니다.");
-			}
-		});
-	}
-</script>
+<script src="/js/team.js"></script>
+
 <%@ include file="../layout/footer.jsp" %>

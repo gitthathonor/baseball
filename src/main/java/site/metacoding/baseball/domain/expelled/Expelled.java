@@ -13,10 +13,12 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Expelled {
 	private Integer id;
-	private String name;
+	private Integer playerId;
+	private String reason;
 	private Timestamp createdAt;
 	
-	public Expelled(String name) {
-		this.name = name;
+	public Expelled(Integer playerId, String reason) {
+		this.playerId = playerId;
+		this.reason = reason;
 	}
 }

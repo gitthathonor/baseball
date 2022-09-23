@@ -12,14 +12,16 @@
 
 	<select id="findAll"
 		resultType="site.metacoding.baseball.domain.player.Player">
-		SELECT * FROM player
+		SELECT * FROM player WHERE isExpelled = 0
 	</select>
 
 	<select id="findAllWithTeam"
 		resultType="site.metacoding.baseball.web.dto.response.PlayerListDto">
-		SELECT p.id id, t.name teamName, p.position position, p.name name, p.createdAt createdAt
+		SELECT ROW_NUMBER() OVER(ORDER BY p.id) AS rownum, p.id id,
+		t.name teamName, p.position position, p.name name,  p.createdAt createdAt
 		FROM player p LEFT OUTER JOIN team t
 		ON p.teamId = t.id
+		WHERE isExpelled = 0
 	</select>
 
 	<select id="findById"
@@ -31,5 +33,29 @@
 		DELETE FROM player WHERE id = #{id}
 	</delete>
 
-
+	<select id="findByPosition"
+		resultType="site.metacoding.baseball.web.dto.response.PositionDto">
+		SELECT
+		POSITION,
+		MAX(if(teamId = 1, NAME, "")) lotte,
+		MAX(if(teamId = 2, NAME, "")) lg,
+		MAX(if(teamId = 3, NAME, "")) kiwoom
+		FROM player
+		GROUP BY POSITION
+	</select>
+	
+	<update id="updateByExpelled">
+		UPDATE player SET isExpelled = 1 WHERE id = #{id}
+	</update>
+	
+	<delete id="deleteByIds">
+		DELETE FROM player 
+		WHERE id IN
+		<foreach collection="ids" item="id" open="(" close=")" separator=",">
+ 			#{id}
+		</foreach>
+	</delete>
+	
+	
+	
 </mapper>

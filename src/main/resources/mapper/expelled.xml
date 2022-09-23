@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="site.metacoding.baseball.domain.expelled.ExpelledDao">
+
+	<insert id="insert">
+		INSERT INTO expelled(playerId, reason, createdAt)
+		VALUES(#{playerId}, #{reason}, NOW())
+	</insert>
+
+	<select id="findAll"
+		resultType="site.metacoding.baseball.domain.expelled.Expelled">
+		SELECT * FROM expelled
+	</select>
+
+	<select id="findAllExpelled"
+		resultType="site.metacoding.baseball.web.dto.response.ExpelledListDto">
+		SELECT ROW_NUMBER() OVER(ORDER BY e.id) AS rownum, p.teamName
+		teamName, p.position POSITION, p.playerName playerName, e.reason
+		reason, e.createdAt expelledDate
+		FROM expelled e INNER JOIN (SELECT p.id playerId, t.name teamName,
+		p.position POSITION, p.name playerName
+		FROM team t INNER JOIN player p
+		ON t.id = p.teamId) p
+		ON e.playerId = p.playerId
+	</select>
+
+	<select id="findById"
+		resultType="site.metacoding.baseball.domain.expelled.Expelled">
+		SELECT * FROM expelled WHERE id = #{id}
+	</select>
+
+	<delete id="deleteById">
+		DELETE FROM expelled WHERE id = #{id}
+	</delete>
+
+
+
+</mapper>

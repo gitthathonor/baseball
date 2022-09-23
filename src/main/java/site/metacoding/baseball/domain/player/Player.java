@@ -15,6 +15,7 @@ public class Player {
 	private String name;
 	private Integer teamId;
 	private String position;
+	private boolean isExpelld;
 	private Timestamp createdAt;
 	
 	

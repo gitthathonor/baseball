@@ -7,20 +7,24 @@
     <thead>
       <tr>
         <th>번호</th>
-        <th>경기장</th>
-        <th>개장일</th>
-        <th>수정</th>
-        <th>삭제</th>
+        <th>팀명</th>
+        <th>포지션</th>
+        <th>선수명</th>
+        <th>사유</th>
+        <th>퇴출일</th>
       </tr>
     </thead>
     <tbody>
-    <c:forEach var="stadium" items="${stadiumList}">
+    <c:forEach var="expelled" items="${expelledList}">
       <tr>
-        <td>${stadium.id}</td>
-        <td>${stadium.name}</td>
-        <td>${stadium.createdAt}</td>
-        <td><button id="btnUpdate" class="btn btn-warning">수정</button></td>
-        <td><button id="btnDelete" class="btn btn-danger">삭제</button></td>
+        <td>${expelled.rownum }</td>
+        <td>${expelled.teamName }</td>
+        <td>${expelled.position}</td>
+        <td>${expelled.playerName}</td>
+        <td>${expelled.reason}</td>
+        <td>${expelled.expelledDate}</td>
+        <td></td>
+        <td></td>
       </tr>
       </c:forEach>
     </tbody>
