@@ -2,15 +2,15 @@
 스프링 수업 완료 실력확인 프로젝트
 
 ### MariaDB 사용자 생성 및 권한 주기
-...sql
+```sql
 create user 'final'@'%' identified BY '1234';
 GRANT ALL PRIVILEGES ON *.* TO 'final'@'%';
 create database baseball;
 use baseball;
-...
+```
 
 ### 테이블 생성
-... sql
+```sql
 CREATE TABLE stadium(
    id INT auto_increment primary key,
    name VARCHAR(100) unique not null,
@@ -39,9 +39,10 @@ CREATE TABLE expelled(
    reason VARCHAR(200) NOT NULL,
    createdAt timestamp
 ) engine=InnoDB default charset=UTF8;
-...
+```
 
 ### 더미 데이터 추가
+```sql
 INSERT INTO stadium(NAME, createdAt) VALUES('사직야구장',NOW());
 INSERT INTO stadium(NAME, createdAt) VALUES('잠실야구장',NOW());
 INSERT INTO stadium(NAME, createdAt) VALUES('고척야구장',NOW());
@@ -66,12 +67,13 @@ COMMIT;
 INSERT INTO expelled(playerId, reason, createdAt) VALUES(1, '은퇴', NOW());
 INSERT INTO expelled(playerId, reason, createdAt) VALUES(4, '부상', NOW());
 INSERT INTO expelled(playerId, reason, createdAt) VALUES(9, '웨이버', NOW());
-
+COMMIT;
+```
 
 ### 테이블 설정 utf-8로 변경
--- 테이블 설정 utf-8
+```sql
 ALTER TABLE stadium CONVERT TO CHARACTER SET utf8;
 ALTER TABLE team CONVERT TO CHARACTER SET UTF8;
 ALTER TABLE player CONVERT TO CHARACTER SET utf8;
 ALTER TABLE expelled CONVERT TO CHARACTER SET UTF8;
-
+```
