@@ -18,32 +18,6 @@
 	</form>
 </div>
 
-<script>
-$("#btnSave").click(()=>{
-	
-	let data = {
-		playerId:$("#player").val(),
-		reason:$("#reason").val()
-	};
-	console.log(data);
-	
-	$.ajax("/expelled",{
-		type: "POST",
-		dataType: "json",
-		data: JSON.stringify(data),
-		headers: { // http header에 들고갈 요청 데이터
-			"Content-Type": "application/json"
-		}
-	}).done((res)=>{
-		if(res.code == 1) {
-			alert(res.msg);
-			location.href="/expelled";
-		} else {
-			alert("선수가 퇴출되지 않았습니다.");
-			history.back();
-		}
-	});
-}); 
-</script>
+<script src="/js/expelled.js"></script>
 
 <%@ include file="../layout/footer.jsp"%>

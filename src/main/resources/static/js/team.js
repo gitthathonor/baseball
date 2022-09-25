@@ -21,7 +21,7 @@ $("#btnSave").click(() => {
 		type: "POST",
 		dataType: "json",
 		data: JSON.stringify(data),
-		headers: { // http header에 들고갈 요청 데이터
+		headers: { 
 			"Content-Type": "application/json"
 		}
 	}).done((res) => {
