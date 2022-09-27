@@ -1,6 +1,7 @@
 package site.metacoding.baseball.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,9 +50,9 @@ public class PlayerService {
 		System.out.println("서비스 실행완료");
 	}
 	
-	public List<PositionDto> 포지션별선수보기() {
-		return playerDao.findByPosition();
-	}
+//	public List<PositionDto> 포지션별선수보기() {
+//		return playerDao.findByPosition();
+//	}
 	
 	@Transactional(rollbackFor = RuntimeException.class)
 	public void 선수퇴출(ExpelledDto expelledDto) {
@@ -66,5 +67,16 @@ public class PlayerService {
 	public List<Player> 선수퇴출시선수목록보기() {
 		return playerDao.findAll();
 	}
+	
+	
+	// 테스트
+	public List<String> findTeamName() {
+		return playerDao.findTeamName();
+	}
+	
+	public List<Map<String, Object>>  findTeamNameList(List<String> teamNameList) {
+		return playerDao.findByPosition(playerDao.findTeamName());
+	}
+	
 	
 }

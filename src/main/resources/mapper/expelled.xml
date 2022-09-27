@@ -20,9 +20,9 @@
 		SELECT ROW_NUMBER() OVER(ORDER BY e.id) AS rownum, p.teamName
 		teamName, p.position POSITION, p.playerName playerName, e.reason
 		reason, e.createdAt expelledDate
-		FROM expelled e INNER JOIN (SELECT p.id playerId, t.name teamName,
+		FROM expelled e LEFT OUTER JOIN (SELECT p.id playerId, t.name teamName,
 		p.position POSITION, p.name playerName
-		FROM team t INNER JOIN player p
+		FROM team t LEFT OUTER JOIN player p
 		ON t.id = p.teamId) p
 		ON e.playerId = p.playerId
 	</select>

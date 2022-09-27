@@ -11,4 +11,5 @@ public interface StadiumDao {
 	public List<Stadium> findAllWithTeam();
 	public void update(Stadium stadium);
 	public void deleteById(Integer id);
+	public Stadium findByName(String name);
 }

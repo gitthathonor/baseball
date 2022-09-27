@@ -22,8 +22,7 @@
 			alert(res.msg);
 			location.href="/stadium";
 		} else {
-			alert("경기장 등록이 제대로 되지 않았습니다.");
-			history.back();
+			alert(res.msg);
 		}
 	});
 }); 

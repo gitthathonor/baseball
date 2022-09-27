@@ -29,4 +29,8 @@
 	<select id="findAllWithTeam" resultType="site.metacoding.baseball.domain.stadium.Stadium">
 		SELECT * FROM stadium
 	</select>
+	
+	<select id="findByName" resultType="site.metacoding.baseball.domain.stadium.Stadium">
+		SELECT * FROM stadium WHERE name = #{name}
+	</select>
 </mapper>

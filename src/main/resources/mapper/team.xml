@@ -18,8 +18,8 @@
 		resultType="site.metacoding.baseball.web.dto.response.TeamListDto">
 		SELECT ROW_NUMBER() OVER(ORDER BY t.id) AS rownum, t.id id,
 		s.name stadiumName, t.name teamName, t.createdAt createdAt
-		FROM team t LEFT OUTER JOIN stadium s
-		ON t.stadiumId = s.id;
+		FROM team t INNER JOIN stadium s
+		ON t.stadiumId = s.id
 	</select>
 
 	<select id="findById"

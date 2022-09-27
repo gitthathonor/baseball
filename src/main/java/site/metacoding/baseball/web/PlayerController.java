@@ -61,12 +61,12 @@ public class PlayerController {
 		return new CMRespDto<>(1, "선수 삭제 완료", null);
 	}
 	
-	@GetMapping("/position")
-	public String getPositionList(Model model) {
-		List<PositionDto> positionList = playerService.포지션별선수보기();
-		model.addAttribute("positionList", positionList);
-		return "position/positionList";
-	}
+//	@GetMapping("/position")
+//	public String getPositionList(Model model) {
+//		List<PositionDto> positionList = playerService.포지션별선수보기();
+//		model.addAttribute("positionList", positionList);
+//		return "position/positionList";
+//	}
 	
 	@GetMapping("/expelled")
 	public String getExpelledList(Model model) {
@@ -88,5 +88,17 @@ public class PlayerController {
 		return new CMRespDto<>(1, "선수 퇴출 완료", null);
 	}
 	
+	// 테스트
+	@GetMapping("/position/teamName")
+	public @ResponseBody CMRespDto<?> getTeamNames() {
+		return new CMRespDto<>(1, "팀 이름 중복 없이 출력", playerService.findTeamName());
+	}
+	
+	@GetMapping("/position/teamNameList")
+	public @ResponseBody CMRespDto<?> getTeamNameList(Model model) {
+		List<String> teamNameList = playerService.findTeamName();
+		model.addAttribute("teamNameList", teamNameList);
+		return new CMRespDto<>(1, "hashmap 출력", playerService.findTeamNameList(teamNameList));
+	}
 	
 }

@@ -24,6 +24,7 @@ public class StadiumController {
 	
 	private final StadiumService stadiumService;
 	
+	
 	@GetMapping("/stadium")
 	public String getStadiumList(Model model) {
 		List<StadiumListDto> stadiumList = stadiumService.경기장목록보기();

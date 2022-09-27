@@ -5,25 +5,23 @@
 <div class="container">
   <table class="table table-striped">
     <thead>
+     <!-- for문을 돌려야함  -->
       <tr>
         <th>포지션</th>
-        <th>롯데</th>
-        <th>LG</th>
-        <th>키움</th>
+        <c:forEach var="teamName" items="${teamNameList}">
+        	<td>${teamName}</td>
+        </c:forEach>
       </tr>
     </thead>
     <tbody>
+    <!-- for문을 돌려야함  -->
     <c:forEach var="position" items="${positionList}">
       <tr>
         <td>${position.position}</td>
-        <td>${position.lotte}</td>
-        <td>${position.lg}</td>
-        <td>${position.kiwoom}</td>
       </tr>
       </c:forEach>
     </tbody>
   </table>
 </div>
-
 
 <%@ include file="../layout/footer.jsp" %>
